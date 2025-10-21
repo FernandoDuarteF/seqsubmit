@@ -21,7 +21,27 @@
 
 ## Introduction
 
-**nf-core/seqsubmit** is a bioinformatics pipeline that ...
+**nf-core/seqsubmit** is a bioinformatics pipeline that submits data to public archives such as [ENA](https://www.ebi.ac.uk/ena/browser/home)
+
+Pipeline will have several modes
+
+- `mags` for MAGs submission with **genome_submitter** wf
+- `bins` for bins submission with **genome_submitter** wf
+- `assemblies` for assembly submission with **assembly_submitter** wf
+
+## Requirements
+
+- Webin account registered https://www.ebi.ac.uk/ena/submit/webin/login
+- Raw reads submitted into [INSDC](https://www.insdc.org/)
+
+## genome_submitter
+
+Workflow to submit MAGs and/or bins to ENA.
+
+It takes input `samplesheet.csv` with fields required for [genome_uploader](https://github.com/EBI-Metagenomics/genome_uploader). Fields described in [docs](https://github.com/EBI-Metagenomics/genome_uploader/blob/main/README.md#input-tsv-and-fields).
+For now workflow converts CSV into required TSV.
+
+_Future implementation will consider missing fields (for example completeness and contamination) and would run steps to fill in the gaps._
 
 <!-- TODO nf-core:
    Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
