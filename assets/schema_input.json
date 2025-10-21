@@ -17,7 +17,7 @@
                 "type": "string",
                 "format": "file-path",
                 "exists": true,
-                "pattern": "^([\\S\\s]*\\/)?[^\\s\\/]+\\.f(ast)?q\\.gz$",
+                "pattern": "^([\\S\\s]*\\/)?[^\\s\\/]+\\.f(ast)?a\\.gz$",
                 "errorMessage": "FASTA file for sequences 1 must be provided, cannot contain spaces and must have extension '.fa.gz' or '.fasta.gz'",
                 "description": "MAG/bin sequence file"
             },
@@ -82,6 +82,6 @@
                 "description": "full NCBI lineage - format: x;y;z"
             }
         },
-        "required": ["sample", "fastq_1"]
+        "required": ["sample", "fasta"]
     }
 }
