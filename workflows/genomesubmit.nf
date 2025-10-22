@@ -3,8 +3,8 @@
     IMPORT MODULES / SUBWORKFLOWS / FUNCTIONS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-include { ENA_WEBIN_CLI as UPLOAD_MAGS_TO_ENA                 } from '../modules/local/ena_webin_cli'
-include { GENOME_UPLOAD as CREATE_MANIFESTS_FOR_GENOME_UPLOAD } from '../modules/local/genome_upload'
+include { GENOME_UPLOAD          } from '../modules/local/genome_upload'
+include { ENA_WEBIN_CLI          } from '../modules/local/ena_webin_cli'
 
 include { MULTIQC                } from '../modules/nf-core/multiqc/main'
 include { paramsSummaryMap       } from 'plugin/nf-schema'
@@ -41,8 +41,14 @@ workflow GENOMESUBMIT {
     ch_remaining_tsv = ch_samplesheet
         .map { row ->
             def cleanRow = row.collect { item ->
-            item instanceof List && item.isEmpty() ? '' : item.toString()
+                item instanceof List && item.isEmpty() ? '' : item.toString()
             }
+
+            // Parse the genome_path column (index 1), to show path to file in current directory
+            if (cleanRow.size() > 1 && cleanRow[1].contains('/')) {
+                cleanRow[1] = file(cleanRow[1]).name
+            }
+
             cleanRow.join('\t')
         }
         .collectFile(
@@ -59,15 +65,16 @@ workflow GENOMESUBMIT {
                 headers.join('\t')
             }
         )
+    // TODO break samplesheet and match sample ids
 
-    CREATE_MANIFESTS_FOR_GENOME_UPLOAD(
-        ch_remaining_tsv,
+    GENOME_UPLOAD(
+        ch_remaining_tsv.first(),
         ch_mags,
         mags_or_bins_flag
     )
-    ch_versions = ch_versions.mix( CREATE_MANIFESTS_FOR_GENOME_UPLOAD.out.versions )
+    ch_versions = ch_versions.mix( GENOME_UPLOAD.out.versions )
 
-    manifests_ch = CREATE_MANIFESTS_FOR_GENOME_UPLOAD.out.manifests.flatten()
+    manifests_ch = GENOME_UPLOAD.out.manifests.flatten()
         .map { manifest ->
             def prefix = manifest.name.replaceAll(/_\d+\.manifest$/, '')
             def meta = [id: prefix]
@@ -75,8 +82,8 @@ workflow GENOMESUBMIT {
     }
     combined_ch = ch_mags.join(manifests_ch)
 
-    UPLOAD_MAGS_TO_ENA(combined_ch)
-    ch_versions = ch_versions.mix( UPLOAD_MAGS_TO_ENA.out.versions )
+    ENA_WEBIN_CLI(combined_ch)
+    ch_versions = ch_versions.mix( ENA_WEBIN_CLI.out.versions )
 
     //
     // Collate and save software versions

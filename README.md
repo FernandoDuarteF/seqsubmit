@@ -34,6 +34,15 @@ Pipeline will have several modes
 - Webin account registered https://www.ebi.ac.uk/ena/submit/webin/login
 - Raw reads submitted into [INSDC](https://www.insdc.org/)
 
+Setup your environment secrets before running the pipeline:
+
+`nextflow secrets set WEBIN_ACCOUNT "Webin-47019"`
+
+`nextflow secrets set WEBIN_PASSWORD "ws2017"`
+
+The credentials above are for a dummy testing account.
+Make sure you update with your authorised credentials.
+
 ## genome_submitter
 
 Workflow to submit MAGs and/or bins to ENA.

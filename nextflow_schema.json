@@ -229,16 +229,6 @@
                     "help_text": "PLACEHOLDER",
                     "enum": ["mags", "bins", "contigs"]
                 },
-                "webin_account": {
-                    "type": "string",
-                    "description": "PLACEHOLDER",
-                    "help_text": "PLACEHOLDER"
-                },
-                "webin_password": {
-                    "type": "string",
-                    "description": "PLACEHOLDER",
-                    "help_text": "PLACEHOLDER"
-                },
                 "upload_force": {
                     "type": "boolean",
                     "description": "PLACEHOLDER",
