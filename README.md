@@ -66,6 +66,21 @@ _Future implementation will consider missing fields (for example completeness an
 > [!NOTE]
 > If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with `-profile test` before running the workflow on actual data.
 
+<!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
+     Explain what rows and columns represent. For instance (please edit as appropriate):
+First, prepare a samplesheet with your input data that looks as follows:
+`samplesheet.csv`:
+```csv
+sample,fastq_1,fastq_2
+CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+```
+Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
+-->
+
+Now, you can run the pipeline using:
+
+<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
+
 ```bash
 nextflow run nf-core/seqsubmit \
    -profile <docker/singularity/.../institute> \
@@ -77,6 +92,14 @@ nextflow run nf-core/seqsubmit \
 > Please provide pipeline parameters via the CLI or Nextflow `-params-file` option. Custom config files including those provided by the `-c` Nextflow option can be used to provide any configuration _**except for parameters**_; see [docs](https://nf-co.re/docs/usage/getting_started/configuration#custom-configuration-files).
 
 For more details and further functionality, please refer to the [usage documentation](https://nf-co.re/seqsubmit/usage) and the [parameter documentation](https://nf-co.re/seqsubmit/parameters).
+
+<!-- TODO nf-core:
+## Pipeline output
+
+To see the results of an example test run with a full size dataset refer to the [results](https://nf-co.re/seqsubmit/results) tab on the nf-core website pipeline page.
+For more details about the output files and reports, please refer to the
+[output documentation](https://nf-co.re/seqsubmit/output).
+-->
 
 ## Credits
 
