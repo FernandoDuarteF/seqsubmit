@@ -251,6 +251,12 @@
                     "type": "string",
                     "description": "ENA study accession (PRJ/ERP) to submit MAGs/bins",
                     "help_text": "Current implementation of pipeline requires to pre-register ENA project (PRJ/ERP) where you want to upload data to. Documentation how to register study: https://ena-docs.readthedocs.io/en/latest/submit/study.html"
+                },
+                "webincli_submit": {
+                    "type": "boolean",
+                    "description": "Submit or validate",
+                    "default": true,
+                    "help": "Flag to run submission or validation. Submission (true) will run upload of data with ena-webin-cli. Validation (false) validates correctness of input files, it does not do submission. Default: true (submit)"
                 }
             }
         }
