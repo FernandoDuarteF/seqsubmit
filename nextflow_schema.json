@@ -199,6 +199,64 @@
                     "description": "Display hidden parameters in the help message (only works when --help or --help_full are provided)."
                 }
             }
+        },
+        "pipeline_options": {
+            "title": "Pipeline flow control parameters",
+            "type": "object",
+            "description": "Use these parameters to control the flow of the pipeline execution.",
+            "properties": {
+                "centre_name": {
+                    "type": "string",
+                    "description": "PLACEHOLDER",
+                    "help": "PLACEHOLDER"
+                },
+                "upload_mags": {
+                    "type": "boolean",
+                    "description": "PLACEHOLDER",
+                    "default": true,
+                    "help": "PLACEHOLDER"
+                },
+                "upload_tpa": {
+                    "type": "boolean",
+                    "description": "PLACEHOLDER",
+                    "default": true,
+                    "help": "PLACEHOLDER"
+                },
+                "mode": {
+                    "type": "string",
+                    "default": "mags",
+                    "description": "PLACEHOLDER",
+                    "help_text": "PLACEHOLDER",
+                    "enum": ["mags", "bins", "contigs"]
+                },
+                "webin_account": {
+                    "type": "string",
+                    "description": "PLACEHOLDER",
+                    "help_text": "PLACEHOLDER"
+                },
+                "webin_password": {
+                    "type": "string",
+                    "description": "PLACEHOLDER",
+                    "help_text": "PLACEHOLDER"
+                },
+                "upload_force": {
+                    "type": "boolean",
+                    "description": "PLACEHOLDER",
+                    "default": true,
+                    "help": "PLACEHOLDER"
+                },
+                "test_upload": {
+                    "type": "boolean",
+                    "description": "PLACEHOLDER",
+                    "default": true,
+                    "help": "PLACEHOLDER"
+                },
+                "ena_genome_study_accession": {
+                    "type": "string",
+                    "description": "PLACEHOLDER",
+                    "help_text": "PLACEHOLDER"
+                }
+            }
         }
     },
     "allOf": [
@@ -210,6 +268,9 @@
         },
         {
             "$ref": "#/$defs/generic_options"
+        },
+        {
+            "$ref": "#/$defs/pipeline_options"
         }
     ]
 }
