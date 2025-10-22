@@ -32,9 +32,7 @@ workflow GENOMESUBMIT {
     // Create channel with meta and fasta
     ch_mags = ch_samplesheet
         .map { row ->
-            def meta = [id: row[0]]
-            def fasta = file(row[1])
-            [meta, fasta]
+            [ row[0], file(row[1]) ]
         }
 
     // Create TSV with metadata fields
@@ -42,6 +40,15 @@ workflow GENOMESUBMIT {
         .map { row ->
             def cleanRow = row.collect { item ->
                 item instanceof List && item.isEmpty() ? '' : item.toString()
+            }
+
+            // Parse the genome_name column (index 0) to extract just the ID
+            if (cleanRow.size() > 0 && cleanRow[0].contains('[id:') && cleanRow[0].contains(']')) {
+                // Extract the ID from [id:lachnospiraceae] format
+                def match = cleanRow[0] =~ /\[id:([^\]]+)\]/
+                if (match) {
+                    cleanRow[0] = match[0][1]
+                }
             }
 
             // Parse the genome_path column (index 1), to show path to file in current directory
@@ -65,11 +72,20 @@ workflow GENOMESUBMIT {
                 headers.join('\t')
             }
         )
-    // TODO break samplesheet and match sample ids
+
+    ch_mags_collected = ch_mags
+        .map { meta, file -> file }
+        .collect()
+        .map { files ->
+            [
+                [id: 'all_mags'],
+                files
+            ]
+        }
 
     GENOME_UPLOAD(
+        ch_mags_collected,
         ch_remaining_tsv.first(),
-        ch_mags,
         mags_or_bins_flag
     )
     ch_versions = ch_versions.mix( GENOME_UPLOAD.out.versions )
@@ -78,9 +94,10 @@ workflow GENOMESUBMIT {
         .map { manifest ->
             def prefix = manifest.name.replaceAll(/_\d+\.manifest$/, '')
             def meta = [id: prefix]
-            [meta, manifest]
+            [ meta, manifest ]
     }
-    combined_ch = ch_mags.join(manifests_ch)
+    manifests_ch.view() // TODO check id correct
+    combined_ch = ch_mags_collected.join(manifests_ch)
 
     ENA_WEBIN_CLI(combined_ch)
     ch_versions = ch_versions.mix( ENA_WEBIN_CLI.out.versions )
