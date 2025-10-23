@@ -88,7 +88,7 @@ workflow GENOMESUBMIT {
         ch_remaining_tsv.first(),
         mags_or_bins_flag
     )
-    ch_versions = ch_versions.mix( GENOME_UPLOAD.out.versions.first() )
+    ch_versions = ch_versions.mix( GENOME_UPLOAD.out.versions )
 
     manifests_ch = GENOME_UPLOAD.out.manifests.flatten()
         .map { manifest ->
