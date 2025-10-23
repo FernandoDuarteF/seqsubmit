@@ -32,8 +32,8 @@ process ENA_WEBIN_CLI {
     ena-webin-cli \\
         -context=genome \\
         -manifest=${prefix}_updated_manifest.manifest \\
-        -userName='\$WEBIN_ACCOUNT' \\
-        -password='\$WEBIN_PASSWORD' \\
+        -userName="\${WEBIN_ACCOUNT}" \\
+        -password="\${WEBIN_PASSWORD}" \\
         ${submit_or_validate} \\
         ${mode}
 
