@@ -59,7 +59,7 @@ workflow GENOMESUBMIT {
             cleanRow.join('\t')
         }
         .collectFile(
-            name: 'remaining_fields.tsv',
+            name: 'submission_metadata.tsv',
             newLine: true,
             seed: {
                 def headers = [
@@ -78,7 +78,7 @@ workflow GENOMESUBMIT {
         .collect()
         .map { files ->
             [
-                [id: 'all_mags'],
+                [id: 'all_files'],
                 files
             ]
         }
