@@ -1,5 +1,5 @@
 process GENOME_UPLOAD {
-
+    tag "$meta.id"
     label 'process_low'
 
     container "community.wave.seqera.io/library/pip_genome-uploader:e2815984bcdc3e83"
@@ -20,11 +20,14 @@ process GENOME_UPLOAD {
     path "results/{MAG,bin}_upload/submission.xml"             , emit: upload_submission_xml
     path "versions.yml"                                        , emit: versions
 
+    when:
+    task.ext.when == null || task.ext.when
+
     script:
-    def tpa      = params.upload_tpa  ? "--tpa"  : ""
-    def force    = params.upload_force  ? "--force"  : ""
+    def args     = task.ext.args         ?: ''
+    def tpa      = params.upload_tpa     ? "--tpa"  : ""
+    def force    = params.upload_force   ? "--force"  : ""
     def mode     = (!params.test_upload) ? "--live" : ""
-    def args     = task.ext.args ?: ''
 
     """
     export ENA_WEBIN=\$WEBIN_ACCOUNT

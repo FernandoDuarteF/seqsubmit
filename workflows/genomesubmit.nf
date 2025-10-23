@@ -88,7 +88,7 @@ workflow GENOMESUBMIT {
         ch_remaining_tsv.first(),
         mags_or_bins_flag
     )
-    ch_versions = ch_versions.mix( GENOME_UPLOAD.out.versions )
+    ch_versions = ch_versions.mix( GENOME_UPLOAD.out.versions.first() )
 
     manifests_ch = GENOME_UPLOAD.out.manifests.flatten()
         .map { manifest ->
@@ -96,11 +96,10 @@ workflow GENOMESUBMIT {
             def meta = [id: prefix]
             [ meta, manifest ]
     }
-    manifests_ch.view() // TODO check id correct
-    combined_ch = ch_mags_collected.join(manifests_ch)
+    combined_ch = ch_mags.join(manifests_ch)
 
-    ENA_WEBIN_CLI(combined_ch)
-    ch_versions = ch_versions.mix( ENA_WEBIN_CLI.out.versions )
+    ENA_WEBIN_CLI( combined_ch )
+    ch_versions = ch_versions.mix( ENA_WEBIN_CLI.out.versions.first() )
 
     //
     // Collate and save software versions
