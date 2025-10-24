@@ -210,18 +210,6 @@
                     "description": "The center name of the submitter (mandatory for broker accounts).",
                     "help": "ena-webin-cli argument -centerName: the center name of the submitter (mandatory for broker accounts)."
                 },
-                "upload_mags": {
-                    "type": "boolean",
-                    "description": "Flag to control MAGS submission runner",
-                    "default": true,
-                    "help": "Set to false if you do not want to upload MAGs to ENA. Default: true"
-                },
-                "upload_bins": {
-                    "type": "boolean",
-                    "description": "Flag to control BINS submission runner",
-                    "default": false,
-                    "help": "Set to true if you want to upload bins to ENA. Default: false"
-                },
                 "upload_tpa": {
                     "type": "boolean",
                     "description": "Flag to control type of assembly study (third party assembly or not)",
