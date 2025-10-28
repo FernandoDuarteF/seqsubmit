@@ -14,11 +14,12 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test' ],
-                    file("https://raw.githubusercontent.com/nf-core/test-datasets/seqsubmit/test_data/contigs.fasta.gz"),
-                    file("https://raw.githubusercontent.com/nf-core/test-datasets/seqsubmit/samplesheets/samplesheet_generatemanifest.csv")
+                    file(params.pipelines_testdata_base_path + "/test_data/contigs.fasta.gz", checkIfExists: true),
+                    file(params.pipelines_testdata_base_path + "/samplesheets/samplesheet_generatemanifest.csv", checkIfExists: true)
                 ]
                 input[1] = "PRJ12345"
                 """
+
             }
         }
 
@@ -43,8 +44,8 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test' ],
-                    file("${params.pipelines_testdata_base_path}/seqsubmit/test_data/contigs.fasta.gz"),
-                    file("${params.pipelines_testdata_base_path}/seqsubmit/samplesheets/samplesheet_generatemanifest.csv")
+                    file(params.pipelines_testdata_base_path + "/test_data/contigs.fasta.gz", checkIfExists: true),
+                    file(params.pipelines_testdata_base_path + "/samplesheets/samplesheet_generatemanifest.csv", checkIfExists: true)
                 ]
                 input[1] = "PRJ12345"
                 """

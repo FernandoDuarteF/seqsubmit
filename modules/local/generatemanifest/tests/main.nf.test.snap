@@ -35,7 +35,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.0"
         },
-        "timestamp": "2025-10-28T16:47:38.880774"
+        "timestamp": "2025-10-28T17:02:27.740236"
     },
     "GENERATEMANIFEST completes with expected outputs - stub": {
         "content": [
@@ -73,6 +73,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.0"
         },
-        "timestamp": "2025-10-28T16:47:42.870153"
+        "timestamp": "2025-10-28T16:49:06.92162"
     }
 }
