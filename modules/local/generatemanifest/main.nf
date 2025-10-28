@@ -43,7 +43,7 @@ process GENERATEMANIFEST {
     //               - The use of the variable in the script `echo $args ` below.
     """
     echo $args
-    
+
     touch ${prefix}.bam
 
     cat <<-END_VERSIONS > versions.yml
