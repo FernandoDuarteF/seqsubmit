@@ -27,7 +27,7 @@ process GENERATEMANIFEST {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        assembly-uploader: \$(generatemanifest --version)
+        python: \$(python --version)
     END_VERSIONS
     """
 
