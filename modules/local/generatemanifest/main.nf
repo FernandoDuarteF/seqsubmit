@@ -2,7 +2,7 @@ process GENERATEMANIFEST {
     tag "$meta.id"
     label 'process_single'
 
-    conda "${moduleDir}/environment.yml"
+    container "community.wave.seqera.io/library/pip_assembly-uploader:7e9461afbdd7a521"
 
     input:
     tuple val(meta), path(data_csv)
@@ -27,7 +27,7 @@ process GENERATEMANIFEST {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        generatemanifest: \$(generatemanifest --version)
+        assembly-uploader: \$(generatemanifest --version)
     END_VERSIONS
     """
 
