@@ -9,7 +9,7 @@ process GENERATE_ASSEMBLY_MANIFEST {
     val(assembly_study)
 
     output:
-    tuple val(meta), path("${assembly_study}_upload/*.manifest", glob: true) , emit: manifest
+    tuple val(meta), path("${assembly_study}_upload/*.manifest") , emit: manifest
     path "versions.yml", emit: versions
 
     when:
