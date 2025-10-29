@@ -35,7 +35,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.0"
         },
-        "timestamp": "2025-10-29T10:56:31.247096"
+        "timestamp": "2025-10-29T11:00:23.072784"
     },
     "GENERATE_ASSEMBLY_MANIFEST completes with expected outputs": {
         "content": [
@@ -73,6 +73,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.0"
         },
-        "timestamp": "2025-10-29T10:55:59.006546"
+        "timestamp": "2025-10-29T11:00:16.801535"
     }
 }
