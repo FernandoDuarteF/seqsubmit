@@ -29,7 +29,13 @@ nextflow_process {
                 { assert snapshot(
                     process.out,
                     path(process.out.versions[0]).yaml
-                ).match() }
+                ).match() },
+                { assert process.out.manifest.size() == 1 },
+                { assert process.out.manifest[0][1].toString().endsWith(".manifest") },
+                {
+                    def manifestContent = path(process.out.manifest[0][1]).text
+                    assert manifestContent.contains("PRJ12345") : "PRJ12345 not found in manifest file"
+                }
             )
         }
 
