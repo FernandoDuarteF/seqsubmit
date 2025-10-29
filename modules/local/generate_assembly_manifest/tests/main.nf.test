@@ -1,14 +1,14 @@
 nextflow_process {
 
-    name "Test Process GENERATEMANIFEST"
+    name "Test Process GENERATE_ASSEMBLY_MANIFEST"
     script "../main.nf"
-    process "GENERATEMANIFEST"
+    process "GENERATE_ASSEMBLY_MANIFEST"
 
     tag "modules"
     tag "modules_"
-    tag "generatemanifest"
+    tag "generate_assembly_manifest"
 
-    test("GENERATEMANIFEST completes with expected outputs") {
+    test("GENERATE_ASSEMBLY_MANIFEST completes with expected outputs") {
         when {
             process {
                 """
@@ -35,7 +35,7 @@ nextflow_process {
 
     }
 
-    test("GENERATEMANIFEST completes with expected outputs - stub") {
+    test("GENERATE_ASSEMBLY_MANIFEST completes with expected outputs - stub") {
 
         options "-stub"
 

@@ -1,0 +1,154 @@
+{
+    "GENERATE_ASSEMBLY_MANIFEST completes with expected outputs - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.manifest:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,188d7f56d019104ee5883d69eede27b4"
+                ],
+                "manifest": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.manifest:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,188d7f56d019104ee5883d69eede27b4"
+                ]
+            },
+            {
+                "GENERATE_ASSEMBLY_MANIFEST": {
+                    "python": "Python 3.14.0"
+                }
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.0"
+        },
+        "timestamp": "2025-10-29T10:47:15.247758"
+    },
+    "ASSEMBLYMANIFEST completes with expected outputs - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.manifest:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7c58cc5953be5d2e38ee1b46a699732c"
+                ],
+                "manifest": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.manifest:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7c58cc5953be5d2e38ee1b46a699732c"
+                ]
+            },
+            {
+                "ASSEMBLYMANIFEST": {
+                    "python": "Python 3.14.0"
+                }
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.0"
+        },
+        "timestamp": "2025-10-28T17:16:07.500547"
+    },
+    "ASSEMBLYMANIFEST completes with expected outputs": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "233126d4c4d023f18c7836ed36395e3c.manifest:md5,b31fec00db575da44ad17950ae2e37ff"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7c58cc5953be5d2e38ee1b46a699732c"
+                ],
+                "manifest": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "233126d4c4d023f18c7836ed36395e3c.manifest:md5,b31fec00db575da44ad17950ae2e37ff"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7c58cc5953be5d2e38ee1b46a699732c"
+                ]
+            },
+            {
+                "ASSEMBLYMANIFEST": {
+                    "python": "Python 3.14.0"
+                }
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.0"
+        },
+        "timestamp": "2025-10-28T17:15:56.862869"
+    },
+    "GENERATE_ASSEMBLY_MANIFEST completes with expected outputs": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "233126d4c4d023f18c7836ed36395e3c.manifest:md5,b31fec00db575da44ad17950ae2e37ff"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,188d7f56d019104ee5883d69eede27b4"
+                ],
+                "manifest": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "233126d4c4d023f18c7836ed36395e3c.manifest:md5,b31fec00db575da44ad17950ae2e37ff"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,188d7f56d019104ee5883d69eede27b4"
+                ]
+            },
+            {
+                "GENERATE_ASSEMBLY_MANIFEST": {
+                    "python": "Python 3.14.0"
+                }
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.0"
+        },
+        "timestamp": "2025-10-29T10:47:08.563532"
+    }
+}

@@ -1,4 +1,4 @@
-process GENERATEMANIFEST {
+process GENERATE_ASSEMBLY_MANIFEST {
     tag "$meta.id"
     label 'process_single'
 
